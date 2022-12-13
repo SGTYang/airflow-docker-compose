@@ -73,13 +73,13 @@ x-airflow-common:
 
 services:
   postgres:
-    image: postgres:13
+    image: postgres:latest
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
     volumes:
-      - postgres-db-volume:/var/lib/postgresql/data
+      - postgres-airflow-db-volume:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U airflow" ]
       interval: 5s
@@ -275,9 +275,9 @@ services:
         condition: service_completed_successfully
 
 volumes:
-  postgres-db-volume:
+  postgres-airflow-db-volume:
     driver: local
     driver_opts:
       type: "none"
       o: "bind"
-      device: "/data/postgresql"
+      device: "/data/postgresql-airflow"

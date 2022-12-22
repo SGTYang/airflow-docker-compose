@@ -8,6 +8,5 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 USER airflow
-RUN pip install --no-cache-dri
 COPY requirements.txt /
 RUN pip install --no-cache-dir -r /requirements.txt

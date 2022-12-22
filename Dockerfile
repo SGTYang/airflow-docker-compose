@@ -1,7 +1,7 @@
 FROM apache/airflow:2.5.0-python3.10
 USER root
 RUN apt-get update \
-  && apt-get -y install libgl1-mesa-glx libgl1 \
+  && apt-get -y install libgl1-mesa-glx libgl1 libgthread-2.0 libsm6 libxext6 g++ swig patchelf\
   && apt-get install -y --no-install-recommends \
          vim \
   && apt-get autoremove -yqq --purge \

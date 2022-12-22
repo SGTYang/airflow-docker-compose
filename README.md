@@ -15,3 +15,23 @@ You have to make sure to configure them for the docker-compose
 mkdir -p ./dags ./logs ./plugins
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 ```
+
+# first setp
+
+아래 명령어 실행 
+
+```
+mkdir -p ./dags ./logs ./plugins
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+```
+
+
+```
+docker-compose up airflow-init
+```
+후
+
+```
+docker compose up -d
+```
+로 실행

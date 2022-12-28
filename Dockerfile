@@ -9,4 +9,5 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 USER airflow
 COPY requirements.txt /
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r /requirements.txt
